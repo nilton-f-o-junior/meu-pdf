@@ -34,24 +34,15 @@ Tudo que vai para produção. Pode ser servido diretamente como site estático e
 ```
 src/
 ├── index.html
-├── juntar-pdf.html
-├── dividir-pdf.html
-├── comprimir-pdf.html
-├── word-pdf.html
-├── pdf-para-word.html
-├── jpg-pdf.html
-├── pdf-para-jpg.html
-├── excel-pdf.html
-├── pdf-para-excel.html
-├── pptx-pdf.html
-├── pdf-para-pptx.html
-├── ocr-pdf.html
-├── assinar-pdf.html
-├── marca-dagua.html
-├── numerar-paginas.html
 ├── manifest.json
 ├── robots.txt
 ├── sitemap.xml
+├── pages/
+│   ├── juntar-pdf.html
+│   ├── dividir-pdf.html
+│   ├── comprimir-pdf.html
+│   ├── word-pdf.html
+│   └── pdf-para-word.html
 └── assets/
     ├── css/
     │   ├── global.css
@@ -69,28 +60,28 @@ src/
     └── og/
 ```
 
+### Arquivos de Configuração
+
+Ficam na raiz de `src/` pois precisam ser acessíveis em URLs fixas na raiz do domínio (`/robots.txt`, `/sitemap.xml`, `/manifest.json`). Como `src/` é a pasta pública exposta pelo servidor, eles devem estar aqui — e não na raiz do repositório.
+
+| Arquivo         | Descrição                                                |
+| --------------- | -------------------------------------------------------- |
+| `index.html`    | Home — apresentação, privacy banner, menu de ferramentas |
+| `manifest.json` | Configuração PWA — nome, ícones, cores, modo standalone  |
+| `robots.txt`    | Instruções para crawlers — aponta para o sitemap         |
+| `sitemap.xml`   | Lista de todas as URLs para indexação no Google          |
+
 ### Páginas
 
-Cada arquivo HTML é uma ferramenta independente e autossuficiente. Não há roteamento central nem estado compartilhado entre páginas.
+Cada arquivo HTML é uma ferramenta independente e autossuficiente, organizada em `src/pages/`. Não há roteamento central nem estado compartilhado entre páginas.
 
-| Arquivo                | Ferramenta                                               |
-| ---------------------- | -------------------------------------------------------- |
-| `index.html`           | Home — apresentação, privacy banner, menu de ferramentas |
-| `juntar-pdf.html`      | Mesclar múltiplos PDFs em um único arquivo               |
-| `dividir-pdf.html`     | Extrair páginas selecionadas de um PDF                   |
-| `comprimir-pdf.html`   | Reduzir o tamanho de um arquivo PDF                      |
-| `word-pdf.html`        | Converter `.docx` / `.doc` em PDF                        |
-| `pdf-para-word.html`   | Converter PDF em documento `.docx`                       |
-| `jpg-pdf.html`         | Converter imagens JPG/PNG em PDF                         |
-| `pdf-para-jpg.html`    | Extrair páginas de PDF como imagens                      |
-| `excel-pdf.html`       | Converter planilha `.xlsx` em PDF                        |
-| `pdf-para-excel.html`  | Extrair tabelas de PDF para `.xlsx`                      |
-| `pptx-pdf.html`        | Converter apresentação `.pptx` em PDF                    |
-| `pdf-para-pptx.html`   | Converter PDF em apresentação PowerPoint                 |
-| `ocr-pdf.html`         | Reconhecimento de texto em PDFs digitalizados            |
-| `assinar-pdf.html`     | Adicionar assinatura digital em PDF                      |
-| `marca-dagua.html`     | Adicionar marca d'água em PDFs                           |
-| `numerar-paginas.html` | Adicionar numeração de páginas em PDF                    |
+| Arquivo              | Ferramenta                                 |
+| -------------------- | ------------------------------------------ |
+| `juntar-pdf.html`    | Mesclar múltiplos PDFs em um único arquivo |
+| `dividir-pdf.html`   | Extrair páginas selecionadas de um PDF     |
+| `comprimir-pdf.html` | Reduzir o tamanho de um arquivo PDF        |
+| `word-pdf.html`      | Converter `.docx` / `.doc` em PDF          |
+| `pdf-para-word.html` | Converter PDF em documento `.docx`         |
 
 ### Assets
 
@@ -124,14 +115,6 @@ Cada arquivo HTML é uma ferramenta independente e autossuficiente. Não há rot
 #### `assets/og/`
 
 Imagens Open Graph no formato 1200×630px, uma por ferramenta. Usadas no preview ao compartilhar links no WhatsApp, Facebook, Twitter/X e LinkedIn.
-
-### Arquivos de Configuração
-
-| Arquivo         | Descrição                                               |
-| --------------- | ------------------------------------------------------- |
-| `manifest.json` | Configuração PWA — nome, ícones, cores, modo standalone |
-| `robots.txt`    | Instruções para crawlers — aponta para o sitemap        |
-| `sitemap.xml`   | Lista de todas as URLs para indexação no Google         |
 
 ---
 
@@ -265,5 +248,3 @@ docs/nome     → atualização de documentação
 ```
 
 ---
-
-_PDF Tools Suite — PROJECT_STRUCTURE.md_
