@@ -69,30 +69,45 @@ A arquitetura segue o padrão de **Micro-Frontends independentes**. Não há rot
 ### 2.2 Estrutura de Arquivos
 
 ```
-/
-├── index.html                  # Home — apresentação, privacy banner, menu de ferramentas
-├── juntar-pdf.html             # Mesclar múltiplos PDFs em um único arquivo
-├── dividir-pdf.html            # Extrair páginas selecionadas de um PDF
-├── comprimir-pdf.html          # Reduzir tamanho de arquivo PDF
-├── pdf-para-word.html          # Converter PDF em documento .docx
-├── word-pdf.html               # Converter .docx/.doc em PDF
-├── pdf-para-jpg.html           # Extrair páginas como imagens JPG/PNG
-├── jpg-pdf.html                # Converter imagens em PDF
-├── pdf-para-pptx.html          # Converter PDF em apresentação PowerPoint
-├── pptx-pdf.html               # Converter .pptx em PDF
-├── pdf-para-excel.html         # Extrair tabelas de PDF para .xlsx
-├── excel-pdf.html              # Converter planilha .xlsx em PDF
-├── ocr-pdf.html                # Reconhecimento de texto em PDFs digitalizados
-├── assinar-pdf.html            # Adicionar assinatura digital em PDF
-├── marca-dagua.html            # Adicionar marca d'água em PDFs
-├── numerar-paginas.html        # Adicionar numeração de páginas
-├── manifest.json               # Configuração do Progressive Web App
-└── assets/
-    ├── css/
-    │   ├── global.css          # Reset, variáveis CSS, tipografia, tema claro/escuro
-    │   └── components.css      # Componentes reutilizáveis: dropzone, botões, progress
-    └── js/
-        └── utils.js            # Funções utilitárias compartilhadas
+├── README.md                         # Porta de entrada do repositório
+├── CONTRIBUTING.md                   # Como contribuir para o projeto
+├── LICENSE                           # Licença MIT
+├── .gitignore                        # Arquivos ignorados pelo Git
+├── .editorconfig                     # Configurações de consistência entre editores
+├── src/                              # Aplicação (Deploy)
+│   ├── index.html                    # Home — apresentação e menu de ferramentas
+│   ├── manifest.json                 # Configuração PWA
+│   ├── robots.txt                    # Instruções para crawlers
+│   ├── sitemap.xml                   # URLs para indexação
+│   ├── pages/                        # Ferramentas independentes
+│   │   ├── juntar-pdf.html           # Mesclar múltiplos PDFs
+│   │   ├── dividir-pdf.html          # Extrair páginas selecionadas
+│   │   ├── comprimir-pdf.html        # Reduzir tamanho de PDF
+│   │   ├── word-pdf.html             # Converter Word → PDF
+│   │   └── pdf-para-word.html        # Converter PDF → Word
+│   └── assets/                       # Recursos estáticos
+│       ├── css/                      # Estilos da aplicação
+│       │   ├── global.css            # Estilos globais e reset
+│       │   ├── themes.css            # Tokens de cores (Catppuccin)
+│       │   └── components.css        # Estilos de componentes reutilizáveis
+│       ├── js/                       # Lógica client-side
+│       │   ├── utils.js              # Funções utilitárias
+│       │   ├── file-validator.js     # Validação de arquivos (MIME, tamanho)
+│       │   └── theme-toggle.js       # Alternador de tema claro/escuro
+│       ├── icons/                    # Favicon e ícones PWA
+│       │   ├── favicon.ico           # Ícone do navegador
+│       │   ├── icon-192.png          # Ícone PWA (192x192)
+│       │   ├── icon-512.png          # Ícone PWA (512x512)
+│       │   └── icon-512-maskable.png # Ícone PWA adaptável
+│       └── og/                       # Imagens Open Graph (redes sociais)
+└── docs/                             # Documentação do projeto
+    ├── sdd/                          # Especificação do sistema (SDD)
+    │   ├── SDD_MEU_PDF.md            # Este documento
+    │   └── CHANGELOG.md              # Histórico de mudanças do SDD
+    ├── adr/                          # Registros de decisões arquiteturais
+    ├── design/                       # Design tokens e wireframes
+    ├── guides/                       # Guias de segurança e desenvolvimento
+    └── planning/                     # Planejamento e roadmap
 ```
 
 ### 2.3 Dependências por Funcionalidade
